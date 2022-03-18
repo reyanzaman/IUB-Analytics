@@ -1,0 +1,91 @@
+body {
+  background-color: #f7f8fb;
+  font-family: Montserrat;
+}
+
+h1, h2 {
+  font-family: Ubuntu;
+  color: #454545;
+}
+
+h3 {
+  font-family: Montserrat;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.logo {
+  max-height: 48px;
+  filter: invert();
+  padding: 5px 10px;
+}
+
+.navbar {
+  box-shadow: 4px 0 4px 2px grey;
+  margin-bottom: 10px;
+}
+
+.nav-item {
+  padding: 10px 0;
+}
+
+.navbar-brand {
+  font-family: Ubuntu;
+  font-size: 2em;
+}
+
+.upload-btn {
+  padding: 10px 40px;
+  margin: auto 5px;
+}
+
+.about-btn {
+  padding: 10px 40px;
+  margin: auto 5px;
+  background-color:	#F0FFFF;
+  color: black;
+}
+
+.about-btn:hover{
+  background-color: white;
+  opacity:80%;
+  color:black;
+}
+
+.main {
+  padding: 10px 20px;
+}
+
+.amount {
+  padding-top: 20px;
+}
+
+.sectiontwo {
+  padding: 40px 90px 40px 50px;
+  background-color: #007bff;
+  color: white;
+  text-align: center;
+}
+
+.line {
+  width: 5%;
+  border: 10px dotted;
+  border-style: none none dotted;
+  color: white;
+  opacity: 10%;
+}
+
+.btn-block{
+  width: 50%;
+  height: 80px;
+  min-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dependencies{
+  font-size: 20px;
+  font-family: Montserrat;
+}
