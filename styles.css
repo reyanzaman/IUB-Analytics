@@ -96,11 +96,43 @@ a:hover {
 }
 
 @media screen and (max-width: 500px) {
+  .titlename{
+    font-size: 20px;
+  }
+
+  .page-name{
+    font-size: 30px;
+  }
+
+  .d-block{
+    min-height: 130px;
+    object-fit: cover;
+  }
+
   .btn-block {
     width: 90%;
     margin: 0 20px 0 20px;
     min-width: 100px;
   }
+}
+
+.selection{
+  border: 2px #dfdfdf solid;
+  padding: 3%;
+  margin: 4% 5%;
+  background-color: 007bff;
+}
+
+.chartarea{
+  border: 2px #dfdfdf solid;
+  background-color: #fff;
+  padding: 3%;
+  margin: 2%;
+  text-align: center;
+}
+
+#section-form .form-check-label{
+  margin-right: 5px;
 }
 
 @media screen and (max-width: 1000px)
@@ -109,5 +141,10 @@ and (min-width:501px) {
     width: 95%;
     margin: 0 20px 0 20px;
     min-width: 100px;
+  }
+
+  .d-block{
+    min-height: 280px;
+    object-fit: cover;
   }
 }

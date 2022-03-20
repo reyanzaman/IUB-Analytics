@@ -44,8 +44,56 @@
 
   <section class="main">
     <h1>Analysis of Unused Resources</h1>
-    <hr />
+    <hr /><br />
+    <form id="urf-form">
+      <div class="form-row">
+        <div class="col">
+          <div class="form-group">
+            <label for="urf-semester">Semester</label>
+            <select class="form-control" id="exampleFormControlSelect1" required>
+              <option>Spring</option>
+              <option>Summer</option>
+              <option>Autumn</option>
+            </select>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group col-md-6">
+            <label for="urf-year">Year</label>
+            <input type="number" class="form-control" id="formGroupExampleInput" placeholder="Enter Semester Year">
+          </div>
+        </div>
+      </div>
+      <br />
+      <button type="submit" class="btn btn-primary">Add to Selection</button>
+    </form>
+  </section>
+
+  <section class="selection">
+    <h3>Selection List (Max 3)</h3>
+    <hr /><br />
+    <ul>
+      <li>
+        <h5>List item 1</h5>
+      </li>
+      <li>
+        <h5>List item 2</h5>
+      </li>
+      <li>
+        <h5>List item 3</h5>
+      </li>
+    </ul>
+  </section>
+
+  <section class=main>
+    <button type="submit" class="btn btn-info btn-block">Generate</button>
     <br />
+    <hr /><br />
+  </section>
+
+  <section class="chartarea">
+    <h3>Generated Analytics</h3>
+    <hr /><br />
   </section>
 
   <!-- JavaScript -->
