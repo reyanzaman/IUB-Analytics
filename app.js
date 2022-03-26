@@ -6,7 +6,7 @@ const mysql = require("mysql");
 
 //Create database connection
 const db = mysql.createConnection({
-  host: 'localhost',
+  host: '',
   user: 'root',
   password: '',
   database: 'iub_analytics'
