@@ -37,10 +37,10 @@ function selectionList(name) {
   year = findVal(name, "-year");
   studentno = findVal(name, "-student");
 
-  if (detail) {
-    detail = document.getElementById(name + "-detail").checked;
+  detail = document.getElementById(name + "-detail");
+  if(detail){
+    detail = detail.checked;
   }
-
 
   c1 = classSize(name, "-c1", "-l1");
   c2 = classSize(name, "-c2", "-l2");

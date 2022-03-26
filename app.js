@@ -5,33 +5,33 @@ const bodyParser = require("body-parser");
 const mysql = require("mysql");
 
 //Create database connection
-const db = mysql.createConnection({
-  host: '',
-  user: 'root',
-  password: '',
-  database: 'iub_analytics'
-})
+// const db = mysql.createConnection({
+//   host: 'localhost',
+//   user: 'root',
+//   password: '',
+//   database: 'iub_analytics'
+// })
 
 //Connect to mysql
-db.connect((err) => {
-  if (err) {
-    throw err;
-  }
-  console.log('MySQL Connected');
-});
+// db.connect((err) => {
+//   if (err) {
+//     throw err;
+//   }
+//   console.log('MySQL Connected');
+// });
 
 const app = express();
 
 //Create database
-app.get('/createdb', (req, res) => {
-  let sql = 'CREATE DATABASE iub_analytics'
-  db.query(sql, (err) => {
-    if (err) {
-      throw err;
-    }
-    res.send('Database Created');
-  })
-})
+// app.get('/createdb', (req, res) => {
+//   let sql = 'CREATE DATABASE iub_analytics'
+//   db.query(sql, (err) => {
+//     if (err) {
+//       throw err;
+//     }
+//     res.send('Database Created');
+//   })
+// })
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({
@@ -47,19 +47,15 @@ app.post("/revenue", function(req, res) {
 })
 
 app.post("/sectiondetails", function(req, res) {
-
 })
 
 app.post("/sectionanalysis", function(req, res) {
-
 })
 
 app.post("/unusedresource", function(req, res) {
-
 })
 
 app.post("/classroomrequirement", function(req, res) {
-
 })
 
 app.listen(process.env.PORT || 3000, function() {
