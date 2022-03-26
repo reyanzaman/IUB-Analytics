@@ -45,12 +45,12 @@
   <section class="main">
     <h1>Classroom Requirement Analysis</h1>
     <hr /><br />
-    <form id="section-form">
+    <form id="cr-form" name="cr_form" action="/classroomrequirement" method="POST">
       <div class="form-row">
         <div class="col">
           <div class="form-group">
-            <label for="crf-semester">Semester</label>
-            <select class="form-control" id="exampleFormControlSelect1" required>
+            <label for="cr-semester">Semester</label>
+            <select class="form-control" id="cr-semester" required>
               <option>Spring</option>
               <option>Summer</option>
               <option>Autumn</option>
@@ -59,65 +59,73 @@
         </div>
         <div class="col">
           <div class="form-group col-md-6">
-            <label for="crf-year">Year</label>
-            <input type="number" class="form-control" id="formGroupExampleInput" placeholder="Enter Semester Year">
+            <label for="cr-year">Year</label>
+            <input type="number" class="form-control" id="cr-year" placeholder="Enter Semester Year">
           </div>
         </div>
       </div><br />
       <label for="crf-class">Class Size</label><br />
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-        <label class="form-check-label" for="crf-class1">1-20</label>
+        <input class="form-check-input" type="checkbox" id="cr-c1" value="option1">
+        <label class="form-check-label" for="cr-c1" id="cr-l1">1-20</label>
       </div>
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-        <label class="form-check-label" for="crf-class2">21-30</label>
+        <input class="form-check-input" type="checkbox" id="cr-c2" value="option2">
+        <label class="form-check-label" for="cr-c2" id="cr-l2">21-30</label>
       </div>
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-        <label class="form-check-label" for="crf-class3">31-35</label>
+        <input class="form-check-input" type="checkbox" id="cr-c3" value="option3">
+        <label class="form-check-label" for="cr-c3" id="cr-l3">31-35</label>
       </div>
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option4">
-        <label class="form-check-label" for="crf-class4">36-40</label>
+        <input class="form-check-input" type="checkbox" id="cr-c4" value="option4">
+        <label class="form-check-label" for="cr-c4" id="cr-l4">36-40</label>
       </div>
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option5">
-        <label class="form-check-label" for="crf-class5">41-50</label>
+        <input class="form-check-input" type="checkbox" id="cr-c5" value="option5">
+        <label class="form-check-label" for="cr-c5" id="cr-l5">41-50</label>
       </div>
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option6">
-        <label class="form-check-label" for="crf-class6">51-54</label>
+        <input class="form-check-input" type="checkbox" id="cr-c6" value="option6">
+        <label class="form-check-label" for="cr-c6" id="cr-l6">51-54</label>
       </div>
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option7">
-        <label class="form-check-label" for="crf-class7">55-64</label>
+        <input class="form-check-input" type="checkbox" id="cr-c7" value="option7">
+        <label class="form-check-label" for="cr-c7" id="cr-l7">55-64</label>
       </div>
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option8">
-        <label class="form-check-label" for="crf-class8">65-124</label>
+        <input class="form-check-input" type="checkbox" id="cr-c8" value="option8">
+        <label class="form-check-label" for="cr-c8" id="cr-l8">65-124</label>
       </div>
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option9">
-        <label class="form-check-label" for="crf-class9">125-168</label>
+        <input class="form-check-input" type="checkbox" id="cr-c9" value="option9">
+        <label class="form-check-label" for="cr-c9" id="cr-l9">125-168</label>
       </div>
       <br /><br /><br />
-      <button type="submit" class="btn btn-primary">Add to Selection</button>
+      <button name="cr" type="submit" class="btn btn-primary" onClick="selectionList(this.name)">Add to Selection</button>
     </form>
   </section>
 
   <section class="selection">
-    <h3>Selection List (Max 3)</h3>
+    <div class="row">
+      <div class="col">
+        <h3 id="seltext">Selection List (Max 3)</h3>
+      </div>
+      <div class="col">
+        <button name="cr" type="submit" class="btn btn-outline-danger clear" onClick="clearList(this.name)"
+        style="float:right; margin:0">Clear Selection</button>
+      </div>
+    </div>
     <hr /><br />
     <ul>
       <li>
-        <h5>List item 1</h5>
+        <h5 id="cr_li1"></h5>
       </li>
       <li>
-        <h5>List item 2</h5>
+        <h5 id="cr_li2"></h5>
       </li>
       <li>
-        <h5>List item 3</h5>
+        <h5 id="cr_li3"></h5>
       </li>
     </ul>
   </section>

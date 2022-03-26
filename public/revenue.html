@@ -46,10 +46,10 @@
     <h1>Analysis of Generated Revenue</h1>
     <hr /><br />
 
-    <form id="rf-form">
+    <form id="rf-form" name="rf_form" action="/revenue" method="POST">
       <div class="form-group">
         <label for="rf-school">School</label>
-        <select class="form-control" id="exampleFormControlSelect1" required>
+        <select name="rf_school" class="form-control" id="rf-school" required>
           <option>SETS</option>
           <option>SBE</option>
           <option>SELS</option>
@@ -61,7 +61,7 @@
         <div class="col">
           <div class="form-group">
             <label for="rf-semester">Semester</label>
-            <select class="form-control" id="exampleFormControlSelect1" required>
+            <select name="rf_semester" class="form-control" id="rf-semester" required>
               <option>Spring</option>
               <option>Summer</option>
               <option>Autumn</option>
@@ -71,27 +71,35 @@
         <div class="col">
           <div class="form-group col-md-6">
             <label for="rf-year">Year</label>
-            <input type="number" class="form-control" id="formGroupExampleInput" placeholder="Enter Semester Year">
+            <input type="number" name="rf_year" class="form-control" id="rf-year" placeholder="Enter Semester Year">
           </div>
         </div>
       </div>
       <br />
-      <button type="submit" class="btn btn-primary">Add to Selection</button>
+      <button name="rf" type="submit" class="btn btn-primary" onClick="selectionList(this.name)">Add to Selection</button>
     </form>
   </section>
 
   <section class="selection">
-    <h3>Selection List (Max 3)</h3>
+    <div class="row">
+      <div class="col">
+        <h3 id="seltext">Selection List (Max 3)</h3>
+      </div>
+      <div class="col">
+        <button name="rf" type="submit" class="btn btn-outline-danger clear" onClick="clearList(this.name)"
+        style="float:right; margin:0">Clear Selection</button>
+      </div>
+    </div>
     <hr /><br />
     <ul>
       <li>
-        <h5>List item 1</h5>
+        <h5 id="rf_li1"></h5>
       </li>
       <li>
-        <h5>List item 2</h5>
+        <h5 id="rf_li2"></h5>
       </li>
       <li>
-        <h5>List item 3</h5>
+        <h5 id="rf_li3"></h5>
       </li>
     </ul>
   </section>
@@ -107,14 +115,14 @@
     <hr /><br />
   </section>
 
-  <!-- JavaScript -->
-  <script src="index.js" charset="utf-8"></script>
-
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  <!-- JavaScript -->
+  <script src="index.js" charset="utf-8"></script>
 </body>
 
 <footer style="text-align:center; padding: 20px">

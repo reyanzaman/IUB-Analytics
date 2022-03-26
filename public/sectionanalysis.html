@@ -45,12 +45,12 @@
   <section class="main">
     <h1>Section Analysis for SETS</h1>
     <hr /><br />
-    <form id="section-form">
+    <form id="sf-form" name="sf_form" action="/sectionanalysis" method="POST">
       <div class="form-row">
         <div class="col">
           <div class="form-group">
             <label for="sf-semester">Semester</label>
-            <select class="form-control" id="exampleFormControlSelect1" required>
+            <select class="form-control" id="sf-semester" required>
               <option>Spring</option>
               <option>Summer</option>
               <option>Autumn</option>
@@ -60,65 +60,73 @@
         <div class="col">
           <div class="form-group col-md-6">
             <label for="sf-year">Year</label>
-            <input type="number" class="form-control" id="formGroupExampleInput" placeholder="Enter Semester Year">
+            <input type="number" class="form-control" id="sf-year" placeholder="Enter Semester Year">
           </div>
         </div>
       </div>
       <br />
       <label for="sf-class">Class Size</label><br />
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-        <label class="form-check-label" for="sf-class1">1-10</label>
+        <input class="form-check-input" type="checkbox" id="sf-c1" value="option1">
+        <label class="form-check-label" id="sf-l1" for="sf-class1">1-10</label>
       </div>
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-        <label class="form-check-label" for="sf-class2">11-20</label>
+        <input class="form-check-input" type="checkbox" id="sf-c2" value="option2">
+        <label class="form-check-label" id="sf-l2" for="sf-class2">11-20</label>
       </div>
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-        <label class="form-check-label" for="sf-class3">21-30</label>
+        <input class="form-check-input" type="checkbox" id="sf-c3" value="option3">
+        <label class="form-check-label" id="sf-l3" for="sf-class3">21-30</label>
       </div>
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option4">
-        <label class="form-check-label" for="sf-class4">31-35</label>
+        <input class="form-check-input" type="checkbox" id="sf-c4" value="option4">
+        <label class="form-check-label" id="sf-l4" for="sf-class4">31-35</label>
       </div>
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option5">
-        <label class="form-check-label" for="sf-class5">36-40</label>
+        <input class="form-check-input" type="checkbox" id="sf-c5" value="option5">
+        <label class="form-check-label" id="sf-l5" for="sf-class5">36-40</label>
       </div>
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option6">
-        <label class="form-check-label" for="sf-class6">41-50</label>
+        <input class="form-check-input" type="checkbox" id="sf-c6" value="option6">
+        <label class="form-check-label" id="sf-l6" for="sf-class6">41-50</label>
       </div>
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option7">
-        <label class="form-check-label" for="sf-class7">51-55</label>
+        <input class="form-check-input" type="checkbox" id="sf-c7" value="option7">
+        <label class="form-check-label" id="sf-l7" for="sf-class7">51-55</label>
       </div>
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option8">
-        <label class="form-check-label" for="sf-class8">56-60</label>
+        <input class="form-check-input" type="checkbox" id="sf-c8" value="option8">
+        <label class="form-check-label" id="sf-l8" for="sf-class8">56-60</label>
       </div>
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option9">
-        <label class="form-check-label" for="sf-class9">60+</label>
+        <input class="form-check-input" type="checkbox" id="sf-c9" value="option9">
+        <label class="form-check-label" id="sf-l9" for="sf-class9">60+</label>
       </div>
       <br /><br /><br />
-      <button type="submit" class="btn btn-primary">Add to Selection</button>
+      <button name="sf" type="submit" class="btn btn-primary" onClick="selectionList(this.name)">Add to Selection</button>
     </form>
   </section>
 
   <section class="selection">
-    <h3>Selection List (Max 3)</h3>
+    <div class="row">
+      <div class="col">
+        <h3 id="seltext">Selection List (Max 3)</h3>
+      </div>
+      <div class="col">
+        <button name="sf" type="submit" class="btn btn-outline-danger clear" onClick="clearList(this.name)"
+        style="float:right; margin:0">Clear Selection</button>
+      </div>
+    </div>
     <hr /><br />
     <ul>
       <li>
-        <h5>List item 1</h5>
+        <h5 id="sf_li1"></h5>
       </li>
       <li>
-        <h5>List item 2</h5>
+        <h5 id="sf_li2"></h5>
       </li>
       <li>
-        <h5>List item 3</h5>
+        <h5 id="sf_li3"></h5>
       </li>
     </ul>
   </section>

@@ -45,12 +45,12 @@
   <section class="main">
     <h1>Analysis of Unused Resources</h1>
     <hr /><br />
-    <form id="urf-form">
+    <form id="ur-form" name="ur_form" action="/unusedresource" method="POST">
       <div class="form-row">
         <div class="col">
           <div class="form-group">
-            <label for="urf-semester">Semester</label>
-            <select class="form-control" id="exampleFormControlSelect1" required>
+            <label for="ur-semester">Semester</label>
+            <select class="form-control" id="ur-semester" required>
               <option>Spring</option>
               <option>Summer</option>
               <option>Autumn</option>
@@ -60,27 +60,35 @@
         <div class="col">
           <div class="form-group col-md-6">
             <label for="urf-year">Year</label>
-            <input type="number" class="form-control" id="formGroupExampleInput" placeholder="Enter Semester Year">
+            <input type="number" class="form-control" id="ur-year" placeholder="Enter Semester Year">
           </div>
         </div>
       </div>
       <br />
-      <button type="submit" class="btn btn-primary">Add to Selection</button>
+      <button name="ur" type="submit" class="btn btn-primary" onClick="selectionList(this.name)">Add to Selection</button>
     </form>
   </section>
 
   <section class="selection">
-    <h3>Selection List (Max 3)</h3>
+    <div class="row">
+      <div class="col">
+        <h3 id="seltext">Selection List (Max 3)</h3>
+      </div>
+      <div class="col">
+        <button name="ur" type="submit" class="btn btn-outline-danger clear" onClick="clearList(this.name)"
+        style="float:right; margin:0">Clear Selection</button>
+      </div>
+    </div>
     <hr /><br />
     <ul>
       <li>
-        <h5>List item 1</h5>
+        <h5 id="ur_li1"></h5>
       </li>
       <li>
-        <h5>List item 2</h5>
+        <h5 id="ur_li2"></h5>
       </li>
       <li>
-        <h5>List item 3</h5>
+        <h5 id="ur_li3"></h5>
       </li>
     </ul>
   </section>
