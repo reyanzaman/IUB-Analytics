@@ -159,6 +159,14 @@ a:hover {
   }
 }
 
+.analytic {
+  margin: 0px 10px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  background-color: white;
+  padding: 40px;
+}
+
 @media screen and (max-width: 1000px) and (min-width:501px) {
   .btn-block {
     width: 95%;

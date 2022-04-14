@@ -41,7 +41,7 @@ async function generateSC() {
     data: {
       datasets: [{
         data: samples1,
-        backgroundColor: ['rgb(255, 99, 132)', 'rgb(255, 159, 78)', 'rgb(255, 205, 86)', 'rgb(35, 202, 180)', 'rgb(54, 182, 235)', ],
+        backgroundColor: ['rgb(255, 99, 132)', 'rgb(255, 159, 78)', 'rgb(255, 205, 86)', 'rgb(35, 202, 180)', 'rgb(54, 182, 235)'],
       }, ],
       labels: ['SBE', 'SELS', 'SETS', 'SLASS', 'SPPH'],
     },
@@ -65,7 +65,7 @@ async function generateSC() {
     data: {
       datasets: [{
         data: samples2,
-        backgroundColor: ['rgb(150, 100, 235)', 'rgb(64, 159, 255)', 'rgb(185, 25, 75)', 'rgb(255, 205, 86)', 'rgb(45, 185, 75)'],
+        backgroundColor: ['rgb(255, 99, 132)', 'rgb(255, 159, 78)', 'rgb(255, 205, 86)', 'rgb(35, 202, 180)', 'rgb(54, 182, 235)'],
       }, ],
       labels: ['SBE', 'SELS', 'SETS', 'SLASS', 'SPPH'],
     },

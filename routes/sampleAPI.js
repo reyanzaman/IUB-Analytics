@@ -46,7 +46,7 @@ function getSample(callback) {
       if (!result[0]) {
         return callback(0);
       } else {
-        db.query("SELECT COUNT(T1.COFFER_COURSE_ID) AS Course, SUM(CREDIT_HOUR) As Credit" +
+        db.query("SELECT COUNT(T1.COFFER_COURSE_ID) AS Course, SUM(ENROLLED) As Enrolled" +
           " FROM spr21_course AS T1, spr21_class AS T2 WHERE T1.COFFER_COURSE_ID = T2.COFFER_COURSE_ID GROUP BY SCHOOL_TITLE ORDER BY SCHOOL_TITLE;",
           function(err, rows) {
             if (err) {
@@ -59,11 +59,11 @@ function getSample(callback) {
               result.push(rows[3].Course);
               result.push(rows[4].Course);
 
-              result.push(rows[0].Credit);
-              result.push(rows[1].Credit);
-              result.push(rows[2].Credit);
-              result.push(rows[3].Credit);
-              result.push(rows[4].Credit);
+              result.push(rows[0].Enrolled);
+              result.push(rows[1].Enrolled);
+              result.push(rows[2].Enrolled);
+              result.push(rows[3].Enrolled);
+              result.push(rows[4].Enrolled);
               console.log("Result: ");
               console.log(result);
               return callback(result);
