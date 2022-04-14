@@ -19,14 +19,14 @@ var db = mysql.createPool({
 //   database: 'iub_database'
 // })
 
-//Connect to mysql
-db.connect((err) => {
-  if (err) {
-    console.log("MySQL not connected")
-    throw err;
-  }
-  console.log('sectionAPI connected to MySQL');
-});
+// //Connect to mysql
+// db.connect((err) => {
+//   if (err) {
+//     console.log("MySQL not connected")
+//     throw err;
+//   }
+//   console.log('sectionAPI connected to MySQL');
+// });
 
 function dbConvert(sem, year) {
   sem = (sem.substr(0, 3)).toLowerCase();
