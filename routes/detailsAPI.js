@@ -1,9 +1,10 @@
 var express = require("express");
 var router = express.Router();
-const mysql = require("mysql");
+var mysql = require("mysql");
 
 //Heroku Connection
-const db = mysql.createConnection({
+var db = mysql.createPool({
+  connectionLimit: 10,
   host: 'eu-cdbr-west-02.cleardb.net',
   user: 'b54630b7ab1862',
   password: 'ad9fbff2',
