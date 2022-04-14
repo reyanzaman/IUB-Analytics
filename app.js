@@ -1,37 +1,18 @@
 //jshint esversion: 6
 
+var restAPIRouter = require("./routes/restAPI");
+var detailsAPIRouter = require("./routes/detailsAPI");
+var resourcesAPIRouter = require("./routes/resourcesAPI");
+var sectionAPIRouter = require("./routes/sectionAPI");
+var classAPIRouter = require("./routes/classAPI");
+
 const express = require("express");
 const bodyParser = require("body-parser");
-const mysql = require("mysql");
-
-//Create database connection
-// const db = mysql.createConnection({
-//   host: 'localhost',
-//   user: 'root',
-//   password: '',
-//   database: 'iub_analytics'
-// })
-
-//Connect to mysql
-// db.connect((err) => {
-//   if (err) {
-//     throw err;
-//   }
-//   console.log('MySQL Connected');
-// });
+const cors = require('cors');
 
 const app = express();
-
-//Create database
-// app.get('/createdb', (req, res) => {
-//   let sql = 'CREATE DATABASE iub_analytics'
-//   db.query(sql, (err) => {
-//     if (err) {
-//       throw err;
-//     }
-//     res.send('Database Created');
-//   })
-// })
+app.use(express.json());
+app.use(cors());
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({
@@ -42,22 +23,12 @@ app.get("/", function(req, res) {
   res.sendFile(__dirname + "/index.html");
 })
 
-app.post("/revenue", function(req, res) {
-  // res.send(`Year is: ${req.body.year}.`);
-})
-
-app.post("/sectiondetails", function(req, res) {
-})
-
-app.post("/sectionanalysis", function(req, res) {
-})
-
-app.post("/unusedresource", function(req, res) {
-})
-
-app.post("/classroomrequirement", function(req, res) {
-})
-
 app.listen(process.env.PORT || 3000, function() {
-  console.log("The Server is up and running on port 3000")
+  console.log(`The Server is up and running on port: ${process.env.PORT || '3000'}`);
 })
+
+app.use("/restAPI", restAPIRouter);
+app.use("/detailsAPI", detailsAPIRouter);
+app.use("/resourcesAPI", resourcesAPIRouter);
+app.use("/sectionAPI", sectionAPIRouter);
+app.use("/classAPI", classAPIRouter);

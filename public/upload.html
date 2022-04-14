@@ -53,13 +53,15 @@
     <br />
     <form id="automaticform" class="was-validated">
       <div class="form-group">
-        <label for="mf-name">Name</label>
-        <input type="text" class="form-control" id="mf-name" aria-describedby="nameHelp" placeholder="Enter your name">
-        <small id="nameHelp" class="form-text text-muted">This will not be entered into the database.</small>
+        <label for="mf-tableName">Table Name</label>
+        <input type="text" class="form-control" id="mf-name" aria-describedby="nameHelp" placeholder="Enter the table name">
+        <small id="nameHelp" class="form-text text-muted">Use the semester name. Example: "Spring 2021"</small>
       </div>
       <br />
       <h5>Follow the Reference Image Layout</h5><br />
       <a href="images/Reference.png"><img class="ref-img" src="images/Reference.png" alt="Reference Image" /></a> <br />
+      <small id="imageHelp" class="form-text text-muted">Make sure the csv file is properly formatted as per the image provided above.</small>
+      <small id="imageHelp" class="form-text text-muted">Table headers should start from 7th Line. There should not be any combined cells below the 7th line.</small>
       <br />
       <div class="custom-file">
         <input type="file" class="custom-file-input" id="validatedCustomFile" required>
@@ -78,9 +80,9 @@
     <br />
     <form id="manualform">
       <div class="form-group">
-        <label for="mf-name">Name</label>
-        <input type="text" class="form-control" id="mf-name" aria-describedby="nameHelp" placeholder="Enter your name">
-        <small id="nameHelp" class="form-text text-muted">This will not be entered into the database.</small>
+        <label for="mf-tableName">Table Name</label>
+        <input type="text" class="form-control" id="mf-name" aria-describedby="nameHelp" placeholder="Enter the table name" required>
+        <small id="nameHelp" class="form-text text-muted">Use the semester name. Example: "Summer 2021"</small>
       </div>
       <div class="form-group">
         <label for="mf-schooltitle">School Title</label>
