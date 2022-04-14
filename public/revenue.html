@@ -124,7 +124,8 @@
     <script>
       async function getData(paramSchool, paramSem, paramYear) {
         let url =
-          "http://localhost:3000/restAPI?school=" +
+          //"http://localhost:3000/restAPI?school="
+          "https://iub-analytics.herokuapp.com/restAPI?school=" +
           paramSchool +
           "&sem=" +
         paramSem + "&year=" + paramYear;
