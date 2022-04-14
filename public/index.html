@@ -72,44 +72,17 @@
 
     <!-- Dashboard Cards -->
     <div class="row">
-      <div class="Stats col-lg-4 col md-6">
-        <div class="card text-center border-primary mb-3">
-          <div class="card-header bg-primary">
-            <h4 style="color: white">Total Capacity</h4>
-          </div>
-          <div class="card-body">
-            <i class="fa-solid fa-user-tie fa-4x"></i>
-            <h1 id="numcapcity" class="amount"><b>50350</b></h1>
-          </div>
-        </div>
+      <div class="Stats col-lg-6 col md-6">
+        <h3 class="text-secondary" style="text-align:center">No. of Courses for Spring 2021</h3><br />
+        <canvas id="sample1-chart" width="600" height="337"></canvas>
       </div>
-      <div class="Stats col-lg-4 col md-6">
-        <div class="card text-center border-primary mb-3">
-          <div class="card-header bg-primary">
-            <h4 style="color: white">Schools</h4>
-          </div>
-          <div class="card-body">
-            <i class="fa-solid fa-graduation-cap fa-4x"></i>
-            <h1 id="numschool" class="amount"><b>6</b></h1>
-          </div>
-        </div>
-      </div>
-      <div class="Stats col-lg-4 col md-6">
-        <div class="card text-center border-primary mb-3">
-          <div class="card-header bg-primary">
-            <h4 style="color: white">Departments</h4>
-          </div>
-          <div class="card-body">
-            <i class="fa-solid fa-building fa-4x"></i>
-            <h1 id="numdepartment" class="amount"><b>15</b></h1>
-          </div>
-        </div>
+      <div class="Stats col-lg-6 col md-6">
+        <h3 class="text-secondary" style="text-align:center">No. of Credits for Spring 2021</h3><br />
+        <canvas id="sample2-chart" width="600" height="337"></canvas>
       </div>
     </div>
     <br />
-    <br />
-    <br />
-    <hr />
+    <hr /><br />
   </section>
 
   <!-- Analytics Section -->
@@ -154,6 +127,27 @@
 
   <hr />
 
+  <!-- Backend to Frontend -->
+  <script>
+    async function getSample() {
+      let url =
+        "/sampleAPI?test=" +
+        'test';
+      try {
+        let res = await fetch(url);
+        return await res.json();
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    async function renderSample() {
+      let user = await getSample();
+      let userData = user.samples;
+      return userData;
+    }
+  </script>
+
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -166,6 +160,7 @@
 
   <!-- JavaScript -->
   <script src="index.js" charset="utf-8"></script>
+  <script src="charts.js" charset="utf-8"></script>
 
 </body>
 

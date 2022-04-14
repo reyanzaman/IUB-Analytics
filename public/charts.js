@@ -10,8 +10,82 @@ var sectionChart = 0;
 var classChart1 = 0;
 var classChart2 = 0;
 var classChart3 = 0;
+sample1Chart = 0;
+sample2Chart = 0;
 
 // ================================================================================
+
+var sc = document.getElementById("sample1-chart");
+if (sc) {
+  generateSC();
+}
+
+//Generate Chart for Revenue
+async function generateSC() {
+  var samples1 = [];
+  var samples2 = [];
+  var samplesT = await renderSample();
+  for (var k = 0; k < 5; k++) {
+    samples1.push(samplesT[k]);
+  }
+  for (var k = 5; k < 10; k++) {
+    samples2.push(samplesT[k]);
+  }
+
+  console.log(samplesT);
+  console.log(samples1);
+  console.log(samples2);
+
+  sample1Chart = new Chart(document.getElementById("sample1-chart"), {
+    type: 'doughnut',
+    data: {
+      datasets: [{
+        data: samples1,
+        backgroundColor: ['rgb(255, 99, 132)', 'rgb(255, 159, 78)', 'rgb(255, 205, 86)', 'rgb(35, 202, 180)', 'rgb(54, 182, 235)', ],
+      }, ],
+      labels: ['SBE', 'SELS', 'SETS', 'SLASS', 'SPPH'],
+    },
+    options: {
+      plugins: {
+        datalabels: {
+          display: true,
+          align: 'bottom',
+          backgroundColor: '#ccc',
+          borderRadius: 3,
+          font: {
+            size: 18,
+          }
+        },
+      }
+    }
+  });
+
+  sample2Chart = new Chart(ctx = document.getElementById("sample2-chart"), {
+    type: 'doughnut',
+    data: {
+      datasets: [{
+        data: samples2,
+        backgroundColor: ['rgb(150, 100, 235)', 'rgb(64, 159, 255)', 'rgb(185, 25, 75)', 'rgb(255, 205, 86)', 'rgb(45, 185, 75)'],
+      }, ],
+      labels: ['SBE', 'SELS', 'SETS', 'SLASS', 'SPPH'],
+    },
+    options: {
+      plugins: {
+        datalabels: {
+          display: true,
+          align: 'bottom',
+          backgroundColor: '#ccc',
+          borderRadius: 3,
+          font: {
+            size: 18,
+          }
+        },
+      }
+    }
+  });
+}
+
+// -------------------------------------------------------------------------------
 
 //Generate Chart for Revenue
 async function generateRC(name) {

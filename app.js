@@ -5,6 +5,7 @@ var detailsAPIRouter = require("./routes/detailsAPI");
 var resourcesAPIRouter = require("./routes/resourcesAPI");
 var sectionAPIRouter = require("./routes/sectionAPI");
 var classAPIRouter = require("./routes/classAPI");
+var sampleAPIRouter = require("./routes/sampleAPI");
 
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -32,3 +33,4 @@ app.use("/detailsAPI", detailsAPIRouter);
 app.use("/resourcesAPI", resourcesAPIRouter);
 app.use("/sectionAPI", sectionAPIRouter);
 app.use("/classAPI", classAPIRouter);
+app.use("/sampleAPI", sampleAPIRouter);
