@@ -91,4 +91,7 @@ async function getManualFormData(name) {
 
   var displayText = await renderFormData(mfTableName, mfSchoolTitle, mfCourseName, mfCourseID, mfCredit, mfSection, mfSectionCapacity, mfEnrolled, mfClassID, mfClassCapacity, mfFaculty, mfStartTime, mfEndTime, mfClassDays);
   console.log(displayText);
+
+  resultTextSelect.textContent = displayText;
+  resultTextSelect.style.color = "green";
 }
