@@ -7,6 +7,7 @@ var sectionAPIRouter = require("./routes/sectionAPI");
 var classAPIRouter = require("./routes/classAPI");
 var sampleAPIRouter = require("./routes/sampleAPI");
 var uploadAPIRouter = require("./routes/uploadAPI");
+var autoAPIRouter = require("./routes/autoAPI");
 
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -36,3 +37,4 @@ app.use("/sectionAPI", sectionAPIRouter);
 app.use("/classAPI", classAPIRouter);
 app.use("/sampleAPI", sampleAPIRouter);
 app.use("/uploadAPI", uploadAPIRouter);
+app.use("/autoAPI", autoAPIRouter);

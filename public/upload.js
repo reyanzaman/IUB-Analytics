@@ -95,3 +95,10 @@ async function getManualFormData(name) {
   resultTextSelect.textContent = displayText;
   resultTextSelect.style.color = "green";
 }
+
+async function getAutomaticFormData(name) {
+  var mfTableAutoName = findVal(name, "-tableAutoName");
+  console.log(mfTableAutoName);
+  // var csvFile = document.getElementById("csvFile");
+  // console.log(csvFile);
+}
