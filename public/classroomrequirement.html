@@ -133,6 +133,7 @@
     <button type="submit" name="cr" id="cr_generate" class="btn btn-info btn-block" onClick="generateCRC(this.name)">Generate</button>
     <br />
     <hr /><br />
+    <h5 class="text-info" style="text-align:center" id="cr-load"></h5>
   </section>
 
   <section class="chartarea">
@@ -168,8 +169,8 @@
       <script>
         async function getClass(paramSem, paramYear, paramSize1, paramSize2) {
           let url =
-            //"http://localhost:3000/classAPI?sem="
-            "/classAPI?sem=" +
+            //"http://localhost:3000/classROUTE?sem="
+            "/classROUTE?sem=" +
             paramSem +
             "&year=" +
             paramYear +

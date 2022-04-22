@@ -1,13 +1,13 @@
 //jshint esversion: 6
 
-var restAPIRouter = require("./routes/restAPI");
-var detailsAPIRouter = require("./routes/detailsAPI");
-var resourcesAPIRouter = require("./routes/resourcesAPI");
-var sectionAPIRouter = require("./routes/sectionAPI");
-var classAPIRouter = require("./routes/classAPI");
-var sampleAPIRouter = require("./routes/sampleAPI");
-var uploadAPIRouter = require("./routes/uploadAPI");
-var autoAPIRouter = require("./routes/autoAPI");
+var revenueROUTERouter = require("./routes/revenueROUTE");
+var detailsROUTERouter = require("./routes/detailsROUTE");
+var resourcesROUTERouter = require("./routes/resourcesROUTE");
+var sectionROUTERouter = require("./routes/sectionROUTE");
+var classROUTERouter = require("./routes/classROUTE");
+var sampleROUTERouter = require("./routes/sampleROUTE");
+var uploadROUTERouter = require("./routes/uploadROUTE");
+var autoROUTERouter = require("./routes/autoROUTE");
 
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -30,11 +30,11 @@ app.listen(process.env.PORT || 3000, function() {
   console.log(`The Server is up and running on port: ${process.env.PORT || '3000'}`);
 })
 
-app.use("/restAPI", restAPIRouter);
-app.use("/detailsAPI", detailsAPIRouter);
-app.use("/resourcesAPI", resourcesAPIRouter);
-app.use("/sectionAPI", sectionAPIRouter);
-app.use("/classAPI", classAPIRouter);
-app.use("/sampleAPI", sampleAPIRouter);
-app.use("/uploadAPI", uploadAPIRouter);
-app.use("/autoAPI", autoAPIRouter);
+app.use("/revenueROUTE", revenueROUTERouter);
+app.use("/detailsROUTE", detailsROUTERouter);
+app.use("/resourcesROUTE", resourcesROUTERouter);
+app.use("/sectionROUTE", sectionROUTERouter);
+app.use("/classROUTE", classROUTERouter);
+app.use("/sampleROUTE", sampleROUTERouter);
+app.use("/uploadROUTE", uploadROUTERouter);
+app.use("/autoROUTE", autoROUTERouter);

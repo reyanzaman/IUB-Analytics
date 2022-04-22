@@ -89,6 +89,10 @@ async function generateSC() {
 
 //Generate Chart for Revenue
 async function generateRC(name) {
+
+  var load = document.getElementById("rf-load");
+  load.textContent = "Please wait patiently while the server loads the data...";
+
   //Taken from IUB website
   const feepercredit = 6000;
 
@@ -280,6 +284,9 @@ function createTable(divID, labelings, val1, val2, val3, val4, val5, val6) {
 
 // Generate chart for Section Details
 async function generateDC(name) {
+  var load = document.getElementById("df-load");
+  load.textContent = "Please wait patiently while the server loads the data...";
+
   //ORDER : SBE SELS SETS SLASS SPPH TOTAL
   //First Input Variables
   var df_yValues1 = [];
@@ -572,6 +579,9 @@ async function generateDC(name) {
 
 //Generate chart for unused resources
 async function generateURC(name) {
+  var load = document.getElementById("ur-load");
+  load.textContent = "Please wait patiently while the server loads the data...";
+
   //First Input Variables
   var ur_yValues1 = [];
   var ur_yValues2 = [];
@@ -739,6 +749,9 @@ async function generateURC(name) {
 
 //Generate chart for SETS sections for class sizes
 async function generateSFC(name) {
+  var load = document.getElementById("sf-load");
+  load.textContent = "Please wait patiently while the server loads the data...";
+
   //Input Variables for class sizes
   // 1. 1-10 | 2. 11-20 | 3. 21-30 | 4. 31-35 | 5. 36-40 | 6. 41-50 | 7. 51-55
   // 8. 55-60 | 9. 60+
@@ -912,6 +925,9 @@ async function generateSFC(name) {
 
 //Generate chart for Classroom Requirement Analysis
 async function generateCRC(name) {
+  var load = document.getElementById("cr-load");
+  load.textContent = "Please wait patiently while the server loads the data...";
+
   //Input Variables for class sizes
   // 1. 1-20 | 2. 21-30 | 3. 31-35 | 4. 36-40 | 5. 41-50 | 6. 51-54 | 7. 55-64
   // 8. 65-124 | 9. 125-168

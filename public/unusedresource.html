@@ -96,6 +96,7 @@
     <button type="submit" name="ur" id="ur_generate" class="btn btn-info btn-block" onClick="generateURC(this.name)">Generate</button>
     <br />
     <hr /><br />
+    <h5 class="text-info" style="text-align:center" id="ur-load"></h5>
   </section>
 
   <section class="chartarea">
@@ -118,8 +119,8 @@
       <script>
         async function getResources(paramSem, paramYear) {
           let url =
-            //"http://localhost:3000/resourcesAPI?sem=" +
-            "/resourcesAPI?sem=" +
+            //"http://localhost:3000/resourcesROUTE?sem=" +
+            "/resourcesROUTE?sem=" +
             paramSem +
             "&year=" +
             paramYear;

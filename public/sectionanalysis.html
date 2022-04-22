@@ -134,6 +134,7 @@
     <button type="submit" name="sf" id="sf_generate" class="btn btn-info btn-block" onClick="generateSFC(this.name)">Generate</button>
     <br />
     <hr /><br />
+    <h5 class="text-info" style="text-align:center" id="sf-load"></h5>
   </section>
 
   <section class="chartarea">
@@ -156,8 +157,8 @@
       <script>
         async function getSections(paramSem, paramYear, paramSize1, paramSize2) {
           let url =
-            //"http://localhost:3000/sectionAPI?sem="
-            "/sectionAPI?sem=" +
+            //"http://localhost:3000/sectionROUTE?sem="
+            "/sectionROUTE?sem=" +
             paramSem +
             "&year=" +
             paramYear +

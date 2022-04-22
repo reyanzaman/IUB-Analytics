@@ -103,6 +103,7 @@
     <button type="submit" name="df" id="df_generate" class="btn btn-info btn-block" onClick="generateDC(this.name)">Generate</button>
     <br />
     <hr /><br />
+    <h5 class="text-info" style="text-align:center" id="df-load"></h5>
   </section>
 
   <p class="text-info" style="text-align:center;">Please refresh the page if clear selection does not work</p>
@@ -145,8 +146,8 @@
     <script>
       async function getDetails(paramSem, paramYear, paramSize) {
         let url =
-          //"http://localhost:3000/detailsAPI?sem="
-          "/detailsAPI?sem=" +
+          //"http://localhost:3000/detailsROUTE?sem="
+          "/detailsROUTE?sem=" +
           paramSem +
           "&year=" +
           paramYear + "&size=" + paramSize;
