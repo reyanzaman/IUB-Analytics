@@ -96,9 +96,7 @@ async function getManualFormData(name) {
   resultTextSelect.style.color = "green";
 }
 
-async function getAutomaticFormData(name) {
-  var mfTableAutoName = findVal(name, "-tableAutoName");
-  console.log(mfTableAutoName);
-  // var csvFile = document.getElementById("csvFile");
-  // console.log(csvFile);
+function showResult() {
+  var result = document.getElementById("uploadedText")
+  result.textContent = "You file has been uploaded successfully!"
 }

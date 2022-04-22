@@ -47,6 +47,18 @@
     <hr />
     <br />
 
+    <style>
+      .hide {
+        position: absolute;
+        top: -4px;
+        left: -4px;
+        width: 1px;
+        height: 1px;
+      }
+    </style>
+
+    <iframe name="hiddenFrame" class="hide"></iframe>
+
     <!-- Automatic Data Entry -->
     <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
       Automatic Form Data Entry
@@ -57,29 +69,30 @@
         <br />
         <h4><b>Automatic Data Entry On New Table</b></h4>
         <p>Upload a properly formatted CSV file and automatically enter data into the database.</p>
-        <b><h3 class="text-danger">Under Development</h3></b>
         <br />
-        <form id="automaticform" class="was-validated">
+        <!-- =============Form Starts Here============= -->
+        <form id="automaticform" class="was-validated" action='/uploadfile' enctype='multipart/form-data' method="post" target="hiddenFrame">
           <div class="form-group">
-            <label for="mf-tableAutoName">Table Name</label>
-            <input type="text" class="form-control" id="mf-name" aria-describedby="nameHelp" placeholder="Enter the table name">
+            <label for="name">Table Name</label>
+            <input type="text" name="name" class="form-control" id="name" aria-describedby="nameHelp" placeholder="Enter the table name">
             <small id="nameHelp" class="form-text text-muted">Use the semester name. Example: "Spring 2021"</small>
           </div>
           <br />
           <h5>Follow the Reference Image Layout</h5><br />
           <a href="images/Reference.png"><img class="ref-img" src="images/Reference.png" alt="Reference Image" /></a> <br />
           <small id="imageHelp" class="form-text text-muted">Make sure the csv file is properly formatted as per the image provided above.</small>
-          <small id="imageHelp" class="form-text text-muted">Table headers should start from 7th Line. There should not be any combined cells below the 7th line.</small>
+          <small id="imageHelp" class="form-text text-muted">Table titles and other lines should not be included except the column headers. There should not be any combined cells.</small>
           <br />
           <!-- Code for uploading file -->
           <div class="custom-file">
-            <input type="file" class="custom-file-input" id="csvFile" accept=".csv" required>
+            <input type="file" name="uploadfile" class="custom-file-input" id="uploadFile" accept=".csv" required>
             <label class="custom-file-label" for="csvFile">Choose a CSV file...</label>
             <div class="invalid-feedback">Please upload a valid properly formated CSV file</div>
             <div class="valid-feedback">File Has Been Selected.</div>
           </div>
-          <br /><br />
-          <button type="submit" name="mf" class="btn btn-primary" onClick="getAutomaticFormData(this.name)">Upload</button>
+          <br />
+          <p id="uploadedText" class="text-success"></p>
+          <button type="submit" value="Upload CSV" class="btn btn-primary" onclick="showResult()">Upload</button>
         </form>
       </div>
     </div>
@@ -249,6 +262,7 @@
 
   <!-- JavaScript -->
   <script src="upload.js" charset="utf-8"></script>
+  <script src="script.js" charset="utf-8"></script>
 
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

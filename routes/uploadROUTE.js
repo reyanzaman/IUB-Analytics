@@ -11,23 +11,6 @@ var db = mysql.createPool({
   database: 'heroku_fc7ad7de78d29f7'
 })
 
-//Local Connection
-// const db = mysql.createConnection({
-//   host: 'localhost',
-//   user: 'root',
-//   password: '',
-//   database: 'iub_database'
-// })
-
-// //Connect to mysql
-// db.connect((err) => {
-//   if (err) {
-//     console.log("MySQL not connected")
-//     throw err;
-//   }
-//   console.log('sectionAPI connected to MySQL');
-// });
-
 function dbConvert(name) {
   var sem = (name.substr(0, 3)).toLowerCase();
   var year = name.substr(-2);
