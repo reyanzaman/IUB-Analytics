@@ -18,7 +18,7 @@ var db = mysql.createPool({
 //   password: '',
 //   database: 'iub_database'
 // })
-// 
+//
 // //Connect to mysql
 // db.connect((err) => {
 //   if (err) {
@@ -51,18 +51,7 @@ function getTotalCredits(school, sem, year, callback) {
         if (!result[0]) {
           return callback(0);
         } else {
-          db.query("SELECT sum(" + semester + "_class.CREDIT_HOUR * " + semester + "_class.ENROLLED) as C_HOUR from " +
-            semester + "_class, " + semester + "_course WHERE (" + semester +
-            "_class.COFFER_COURSE_ID = " + semester + "_course.COFFER_COURSE_ID) AND " + semester + "_course.SCHOOL_TITLE = '" + schoolName + "';",
-            function(err, rows) {
-              if (err) {
-                throw err;
-              } else {
-                var result = rows[0].C_HOUR;
-                //console.log(result);
-                return callback(result);
-              }
-            })
+          
         }
       }
     })

@@ -49,23 +49,7 @@ function getUnusedResources(sem, year, callback) {
         if (!result[0]) {
           return callback(0);
         } else {
-          db.query("SELECT (((AVG(ROOM_CAPACITY) - AVG(ENROLLED)) / AVG(ROOM_CAPACITY)) * 100) AS Unused_Resources, SCHOOL_TITLE AS School FROM " +
-          semester + "_class, " + semester + "_room, " + semester + "_course WHERE (" + semester + "_course.COFFER_COURSE_ID = " + semester + "_class.COFFER_COURSE_ID) AND (" +
-          semester + "_class.ROOM_ID = " + semester + "_room.ROOM_ID) GROUP BY SCHOOL_TITLE;",
-            function(err, rows) {
-              if (err) {
-                throw err;
-              } else {
-                console.log(rows);
-                var arr = [];
-                for (var k = 0; k < rows.length; k++) {
-                  arr.push([rows[k].Unused_Resources, rows[k].School]);
-                }
-                console.log("Array is:")
-                console.log(arr);
-                return callback(arr);
-              }
-            })
+
         }
       }
     })

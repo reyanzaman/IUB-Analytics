@@ -50,22 +50,7 @@ function getTotalSections(sem, year, size, callback) {
         if (!result[0]) {
           return callback(0);
         } else {
-          db.query("SELECT COUNT(ENROLLED) AS T_Sections, SCHOOL_TITLE AS T_Title FROM " +
-            semester + "_class AS CL, " + semester +
-            "_course AS CR WHERE (CL.COFFER_COURSE_ID = CR.COFFER_COURSE_ID) AND ENROLLED = " +
-            secSize + " GROUP BY SCHOOL_TITLE",
-            function(err, rows) {
-              if (err) {
-                throw err;
-              } else {
-                var arr = [];
-                for (var k = 0; k < rows.length; k++) {
-                  arr.push([rows[k].T_Sections, rows[k].T_Title]);
-                }
-                //console.log(arr);
-                return callback(arr);
-              }
-            })
+          
         }
       }
     })

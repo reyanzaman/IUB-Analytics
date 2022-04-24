@@ -19,50 +19,6 @@ function dbConvert(name) {
   return result;
 }
 
-function QueryOne(tableName, crID, crName, sTitle, clID, clCapacity, section, credit, sEnrolled, sCapacity, faculty, clStart, clEnd, clDays) {
-  db.query("INSERT INTO " + tableName +
-    "_course (COFFER_COURSE_ID, COURSE_NAME, SCHOOL_TITLE)" +
-    " VALUES ('" + crID + "', '" + crName + "', '" + sTitle + "');",
-    function(err, rows) {
-      if (err) {
-        throw err;
-      } else {
-        console.log("Query 1 executed.");
-        return QueryTwo(tableName, crID, crName, sTitle, clID, clCapacity, section, credit, sEnrolled, sCapacity, faculty, clStart, clEnd, clDays);
-      }
-    })
-}
-
-function QueryTwo(tableName, crID, crName, sTitle, clID, clCapacity, section, credit, sEnrolled, sCapacity, faculty, clStart, clEnd, clDays) {
-  db.query("INSERT INTO " + tableName +
-    "_room (ROOM_ID, ROOM_CAPACITY)" +
-    " VALUES ('" + clID + "', '" + clCapacity + "');",
-    function(err, rows) {
-      if (err) {
-        throw err;
-      } else {
-        console.log("Query 2 executed.");
-        return QueryThree(tableName, crID, section, credit, sEnrolled, sCapacity, clID, faculty, clStart, clEnd, clDays);
-      }
-    })
-}
-
-function QueryThree(tableName, crID, section, credit, sEnrolled, sCapacity, clID, faculty, clStart, clEnd, clDays) {
-  db.query("INSERT INTO " + tableName +
-    "_class (COFFER_COURSE_ID, SECTION, CREDIT_HOUR, ENROLLED, CAPACITY, ROOM_ID, FACULTY_FULL_NAME, START_TIME, END_TIME, ST_MW)" +
-    " VALUES ('" + crID + "', '" + section + "', '" + credit + "', '" + sEnrolled + "', '" + sCapacity + "', '" + clID + "', '" +
-    faculty + "', '" + clStart + "', '" + clEnd + "', '" + clDays + "');",
-    function(err, rows) {
-      if (err) {
-        throw err;
-      } else {
-        returnText = "Table has been updated. Have a nice day!";
-        console.log("Query 3 executed.");
-        return returnText;
-      }
-    })
-}
-
 function ImportFormData(tName, sTitle, crName, crID, credit, section, sCapacity, sEnrolled, clID, clCapacity, faculty, clStart, clEnd, clDays, callback) {
   var tableName = dbConvert(tName);
   var returnText;

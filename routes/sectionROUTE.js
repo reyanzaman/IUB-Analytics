@@ -42,26 +42,7 @@ function getSectionsSETS(sem, year, size1, size2, callback) {
   } else {
     var semester = dbConvert(sem, year);
     //Checking if table exists
-    db.query("SHOW TABLES LIKE '" + semester + "_class';", function(err, result) {
-      if (err) {
-        throw err;
-      } else {
-        if (!result[0]) {
-          return callback(0);
-        } else {
-          if (size1 != 0) {
-            db.query("SELECT COUNT(ENROLLED) AS SECTIONS FROM " + semester +
-              "_class AS CL, " + semester + "_course AS CR WHERE (CR.COFFER_COURSE_ID = CL.COFFER_COURSE_ID) AND CR.SCHOOL_TITLE = 'SETS' AND ENROLLED BETWEEN " +
-               size1 + " AND " + size2 + ";",
-              function(err, rows) {
-                if (err) {
-                  throw err;
-                } else {
-                  var resultVal = rows[0].SECTIONS;
-                  //console.log(resultVal);
-                  return callback(resultVal);
-                }
-              })
+    
           } else {
             return callback(0);
           }

@@ -83,35 +83,7 @@ function getClass(sem, year, size1, size2, callback) {
           return callback(0);
         } else {
           if (size1 != 0) {
-            db.query("SELECT COUNT(ENROLLED) AS SECTIONS FROM " + semester +
-              "_class WHERE ENROLLED BETWEEN " + size1 + " AND " + size2 + ";",
-              function(err, rows) {
-                //console.log(rows);
-                if (err) {
-                  throw err;
-                } else {
-                  resultVal1 = rows[0].SECTIONS;
-                  console.log("Sem: " + sem + " Year: " + year + " size1: " + size1 + " size2: " + size2);
-                  console.log("Enrolled: " + resultVal1);
-                  resVal[0] = resultVal1; //Sections
-                  resVal[1] = Math.ceil(resVal[0] / 14); //For 7 Slots
-                  resVal[2] = Math.ceil(resVal[0] / 16); //For 8 Slots
-                }
-              })
-            db.query("SELECT COUNT(ROOM_CAPACITY) AS ROOMS FROM " + semester +
-              "_room WHERE ROOM_CAPACITY BETWEEN " + size1 + " AND " + size2 + ";",
-              function(err, rows) {
-                //console.log(rows);
-                if (err) {
-                  throw err;
-                } else {
-                  resultVal2 = rows[0].ROOMS;
-                  console.log("Rooms: " + resultVal2);
-                  resVal[3] = resultVal2; //Rooms
-                  console.log(resVal);
-                  return callback(resVal);
-                }
-              })
+            
           } else {
             return callback(0);
           }
