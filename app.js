@@ -166,7 +166,7 @@ function UploadCsvDataToMySQL(filePath, names) {
           setTimeout(function () {
             MigrateQueryRoom(query4);
           }, 2400);
-          Order 5 Create Table Sem_extra
+          //Order 5 Create Table Sem_extra
           let query5 = 'CREATE TABLE ' + tName + '_extra ENGINE=InnoDB AS SELECT COFFER_COURSE_ID, SECTION, COFFERED_WITH, BLOCKED FROM tallysheet ORDER BY COFFER_COURSE_ID, SECTION';
           setTimeout(function () {
             ExtraTable(query5);
