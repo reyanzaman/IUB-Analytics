@@ -151,22 +151,22 @@ function UploadCsvDataToMySQL(filePath, names) {
           //Order 1 Insert Table Into Database
           let query1 = 'INSERT INTO tallysheet (SCHOOL_TITLE, COFFER_COURSE_ID, COFFERED_WITH, SECTION, CREDIT_HOUR, CAPACITY, ENROLLED, ROOM_ID, ROOM_CAPACITY, BLOCKED, COURSE_NAME, FACULTY_FULL_NAME, STRAT_TIME, END_TIME, ST_MW) VALUES ?';
           InsertQuery(query1, csvData);
-          // //Order 2 Create Table Sem_Class
-          // let query2 = 'CREATE TABLE ' + tName + '_class ENGINE=InnoDB AS SELECT COFFER_COURSE_ID, SECTION, CREDIT_HOUR, ENROLLED, CAPACITY, ROOM_ID, FACULTY_FULL_NAME, STRAT_TIME AS START_TIME, END_TIME, ST_MW FROM tallysheet ORDER BY COFFER_COURSE_ID, SECTION;';
-          // setTimeout(function () {
-          //   MigrateQueryClass(query2);
-          // }, 1600);
-          // //Order 3 Create Table Sem_course
-          // let query3 = 'CREATE TABLE ' + tName + '_course ENGINE=InnoDB AS SELECT DISTINCT COFFER_COURSE_ID, COURSE_NAME, SCHOOL_TITLE FROM tallysheet ORDER BY SCHOOL_TITLE;';
-          // setTimeout(function () {
-          //   MigrateQueryCourse(query3);
-          // }, 2000);
-          // //Order 4 Create Table Sem_room
-          // let query4 = 'CREATE TABLE ' + tName + '_room ENGINE=InnoDB AS SELECT DISTINCT ROOM_ID, ROOM_CAPACITY FROM tallysheet ORDER BY ROOM_ID;';
-          // setTimeout(function () {
-          //   MigrateQueryRoom(query4);
-          // }, 2400);
-          //Order 5 Create Table Sem_extra
+          //Order 2 Create Table Sem_Class
+          let query2 = 'CREATE TABLE ' + tName + '_class ENGINE=InnoDB AS SELECT COFFER_COURSE_ID, SECTION, CREDIT_HOUR, ENROLLED, CAPACITY, ROOM_ID, FACULTY_FULL_NAME, STRAT_TIME AS START_TIME, END_TIME, ST_MW FROM tallysheet ORDER BY COFFER_COURSE_ID, SECTION;';
+          setTimeout(function () {
+            MigrateQueryClass(query2);
+          }, 1600);
+          //Order 3 Create Table Sem_course
+          let query3 = 'CREATE TABLE ' + tName + '_course ENGINE=InnoDB AS SELECT DISTINCT COFFER_COURSE_ID, COURSE_NAME, SCHOOL_TITLE FROM tallysheet ORDER BY SCHOOL_TITLE;';
+          setTimeout(function () {
+            MigrateQueryCourse(query3);
+          }, 2000);
+          //Order 4 Create Table Sem_room
+          let query4 = 'CREATE TABLE ' + tName + '_room ENGINE=InnoDB AS SELECT DISTINCT ROOM_ID, ROOM_CAPACITY FROM tallysheet ORDER BY ROOM_ID;';
+          setTimeout(function () {
+            MigrateQueryRoom(query4);
+          }, 2400);
+          Order 5 Create Table Sem_extra
           let query5 = 'CREATE TABLE ' + tName + '_extra ENGINE=InnoDB AS SELECT COFFER_COURSE_ID, SECTION, COFFERED_WITH, BLOCKED FROM tallysheet ORDER BY COFFER_COURSE_ID, SECTION';
           setTimeout(function () {
             ExtraTable(query5);
