@@ -138,7 +138,7 @@ function UploadCsvDataToMySQL(filePath, names) {
     })
     .on("end", function() {
       // Remove Header ROW
-      csvData.shift();
+      //csvData.shift();
 
       // Open the MySQL connection
       db.getConnection((error) => {
