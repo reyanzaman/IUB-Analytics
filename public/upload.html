@@ -47,44 +47,71 @@
     <hr />
     <br />
 
+    <style>
+      .hide {
+        position: absolute;
+        top: -4px;
+        left: -4px;
+        width: 1px;
+        height: 1px;
+      }
+    </style>
+
+    <iframe name="hiddenFrame" class="hide"></iframe>
+
     <!-- Automatic Data Entry -->
-    <h4><b>Automatic Data Entry</b></h4>
-    <p>Upload a properly formatted CSV file and automatically enter data into the database.</p>
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      Automatic Form Data Entry
+    </button>
     <br />
-    <form id="automaticform" class="was-validated">
-      <div class="form-group">
-        <label for="mf-name">Name</label>
-        <input type="text" class="form-control" id="mf-name" aria-describedby="nameHelp" placeholder="Enter your name">
-        <small id="nameHelp" class="form-text text-muted">This will not be entered into the database.</small>
+    <div class="collapse" id="collapseExample">
+      <div class="card card-body" style="margin-top: 20px">
+        <br />
+        <h4><b>Automatic Data Entry On New Table</b></h4>
+        <p>Upload a properly formatted CSV file and automatically enter data into the database.</p>
+        <br />
+        <!-- =============Form Starts Here============= -->
+        <form id="automaticform" class="was-validated" action='/uploadfile' enctype='multipart/form-data' method="post" target="hiddenFrame">
+          <div class="form-group">
+            <label for="name">Table Name</label>
+            <input type="text" name="name" class="form-control" id="name" aria-describedby="nameHelp" placeholder="Enter the table name">
+            <small id="nameHelp" class="form-text text-muted">Use the semester name. Example: "Spring 2021"</small>
+          </div>
+          <br />
+          <h5>Follow the Reference Image Layout</h5><br />
+          <a href="images/Reference.png"><img class="ref-img" src="images/Reference.png" alt="Reference Image" /></a> <br />
+          <small id="imageHelp" class="form-text text-muted">Make sure the csv file is properly formatted as per the image provided above.</small>
+          <small id="imageHelp" class="form-text text-muted">Table titles and other lines should not be included except the column headers. There should not be any combined cells.</small>
+          <br />
+          <!-- Code for uploading file -->
+          <div class="custom-file">
+            <input type="file" name="uploadfile" class="custom-file-input" id="uploadFile" accept=".csv" required>
+            <label class="custom-file-label" for="csvFile">Choose a CSV file...</label>
+            <div class="invalid-feedback">Please upload a valid properly formated CSV file</div>
+            <div class="valid-feedback">File Has Been Selected.</div>
+          </div>
+          <br />
+          <p id="uploadedText" class="text-success"></p>
+          <button type="submit" value="Upload CSV" class="btn btn-primary" onclick="showResult()">Upload</button>
+        </form>
       </div>
-      <br />
-      <h5>Follow the Reference Image Layout</h5><br />
-      <a href="images/Reference.png"><img class="ref-img" src="images/Reference.png" alt="Reference Image" /></a> <br />
-      <br />
-      <div class="custom-file">
-        <input type="file" class="custom-file-input" id="validatedCustomFile" required>
-        <label class="custom-file-label" for="validatedCustomFile">Choose a CSV file...</label>
-        <div class="invalid-feedback">Please upload a valid properly formated CSV file</div>
-      </div>
-      <br /><br />
-      <button type="submit" class="btn btn-primary">Upload</button>
-    </form>
+    </div>
 
     <!-- Manual Data Entry -->
     <br />
     <hr /><br />
-    <h4><b>Manual Data Entry</b></h4>
+    <h4><b>Manual Data Entry on Existing Table</b></h4>
     <p>Fill up the required fields and enter the data manually into the database.</p>
     <br />
     <form id="manualform">
       <div class="form-group">
-        <label for="mf-name">Name</label>
-        <input type="text" class="form-control" id="mf-name" aria-describedby="nameHelp" placeholder="Enter your name">
-        <small id="nameHelp" class="form-text text-muted">This will not be entered into the database.</small>
+        <label for="mf-tableName">Table Name</label>
+        <input type="text" class="form-control" id="mf-tableName" aria-describedby="nameHelp" placeholder="Enter the table name" required>
+        <small id="nameHelp" class="form-text text-muted">Use the semester name. Example: "Summer 2021"</small>
       </div>
       <div class="form-group">
-        <label for="mf-schooltitle">School Title</label>
-        <select class="form-control" id="exampleFormControlSelect1" required>
+        <label for="mf-schoolTitle">School Title</label>
+        <select class="form-control" id="mf-schoolTitle" required>
           <option>SETS</option>
           <option>SBE</option>
           <option>SELS</option>
@@ -100,10 +127,10 @@
         <label for="mf-courseID">Coffer Course ID</label>
         <input type="text" class="form-control" id="mf-courseID" placeholder="Enter the Course ID" required>
       </div>
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label for="mf-cofferID">Coffered With</label>
         <input type="text" class="form-control" id="mf-cofferID" placeholder="Enter the Coffered with Course ID" required>
-      </div>
+      </div> -->
       <div class="form-group">
         <label for="mf-credit">Credit Hour</label>
         <input type="number" class="form-control" id="mf-credit" placeholder="Enter the Credit Hours for the Course" required>
@@ -120,7 +147,7 @@
         <label for="mf-enrolled">Students Enrolled</label>
         <input type="number" class="form-control" id="mf-enrolled" placeholder="Enter the Number of Students Enrolled" required>
       </div>
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label for="mf-block">Section Block Status</label>
         <select class="form-control" id="exampleFormControlSelect1" required>
           <option>-1</option>
@@ -128,33 +155,33 @@
           <option>B-0</option>
           <option>B-1</option>
         </select>
-      </div>
+      </div> -->
       <div class="form-group">
         <label for="mf-roomID">Classroom ID</label>
-        <input type="text" class="form-control" id="mf-roomID" placeholder="Enter the Classroom ID" required>
+        <input type="text" class="form-control" id="mf-classID" placeholder="Enter the Classroom ID" required>
       </div>
       <div class="form-group">
         <label for="mf-roomCapacity">Clasroom Capcaity</label>
-        <input type="number" class="form-control" id="mf-roomCapacity" placeholder="Enter the Capacity of the Classroom" required>
+        <input type="number" class="form-control" id="mf-classCapacity" placeholder="Enter the Capacity of the Classroom" required>
       </div>
       <div class="form-group">
         <label for="mf-faculty">Faculty Name</label>
         <input type="text" class="form-control" id="mf-faculty" aria-describedby="facultyHelp" placeholder="Enter the Full Name of Faculty" required>
-        <small id="facultytHelp" class="form-text text-muted">Enter in this format: (FacultyID)-(FullName)</small>
+        <small id="facultytHelp" class="form-text text-muted">Enter in this format: 'FacultyID' - 'FullName' (without the quotes).</small>
       </div>
       <div class="form-group">
         <label for="mf-start">Class Start Time</label>
-        <input type="text" class="form-control" id="mf-start" aria-describedby="startHelp" placeholder="Enter the Starting Time" required>
+        <input type="text" class="form-control" id="mf-startTime" aria-describedby="startHelp" placeholder="Enter the Starting Time" required>
         <small id="startHelp" class="form-text text-muted">Enter the time in 24-Hour format seperated with a colon(:). Example: 12:30</small>
       </div>
       <div class="form-group">
         <label for="mf-end">Class End Time</label>
-        <input type="text" class="form-control" id="mf-end" aria-describedby="endHelp" placeholder="Enter the Ending Time" required>
+        <input type="text" class="form-control" id="mf-endTime" aria-describedby="endHelp" placeholder="Enter the Ending Time" required>
         <small id="endHelp" class="form-text text-muted">Enter the time in 24-Hour format seperated with a colon(:). Example: 2:00</small>
       </div>
       <div class="form-group">
-        <label for="mf-day">Class Days</label>
-        <select class="form-control" id="exampleFormControlSelect1" required>
+        <label for="mf-classDay">Class Days</label>
+        <select class="form-control" id="mf-classDay" required>
           <option>ST</option>
           <option>MW</option>
           <option>S</option>
@@ -166,18 +193,75 @@
           <option>A</option>
         </select>
       </div>
-      <br />
-      <div class="form-check">
+      <!-- <div class="form-check">
         <input type="checkbox" class="form-check-input" id="mf-Check1" required>
         <label class="form-check-label" for="mf-Check1">Confirm that all the data have been entered correctly.</label>
-      </div><br />
-      <button type="submit" class="btn btn-primary">Upload</button>
+      </div><br /> -->
     </form>
+    <span style="color: red;" id="mf-resultText"></span><br /><br />
+    <button type="submit" name="mf" class="btn btn-primary" onClick="getManualFormData(this.name)">Upload</button>
 
   </section>
 
+  <!-- Backend to Frontend -->
+  <script>
+    async function InsertData(param_tName, param_sTitle, param_crName,
+      param_crID, param_Credit, param_Section, param_sCapacity, param_sEnrolled, param_clID,
+      param_clCapacity, param_Faculty, param_clStart, param_clEnd, param_clDays) {
+      let url =
+        //"http://localhost:3000/resourcesAPI?sem=" +
+        "/uploadROUTE?tName=" +
+        param_tName +
+        "&sTitle=" +
+        param_sTitle +
+        "&crName=" +
+        param_crName +
+        "&crID=" +
+        param_crID +
+        "&credit=" +
+        param_Credit +
+        "&section=" +
+        param_Section +
+        "&sCapacity=" +
+        param_sCapacity +
+        "&sEnrolled=" +
+        param_sEnrolled +
+        "&clID=" +
+        param_clID +
+        "&clCapacity=" +
+        param_clCapacity +
+        "&faculty=" +
+        param_Faculty +
+        "&clStart=" +
+        param_clStart +
+        "&clEnd=" +
+        param_clEnd +
+        "&clDays=" +
+        param_clDays;
+      try {
+        let res = await fetch(url);
+        return await res.json();
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    async function renderFormData(param_tName, param_sTitle, param_crName,
+      param_crID, param_Credit, param_Section, param_sCapacity, param_sEnrolled, param_clID,
+      param_clCapacity, param_Faculty, param_clStart, param_clEnd, param_clDays) {
+
+      let user = await InsertData(param_tName, param_sTitle, param_crName,
+        param_crID, param_Credit, param_Section, param_sCapacity, param_sEnrolled, param_clID,
+        param_clCapacity, param_Faculty, param_clStart, param_clEnd, param_clDays);
+
+      let userData = user.message;
+      //console.log(user.sections);
+      return userData;
+    }
+  </script>
+
   <!-- JavaScript -->
-  <script src="index.js" charset="utf-8"></script>
+  <script src="upload.js" charset="utf-8"></script>
 
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
