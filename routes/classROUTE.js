@@ -113,7 +113,7 @@ function getClass(sem, year, size1, size2, callback) {
                     return callback(resVal);
                   }
                 })
-              }, 40);
+              }, 100);
           } else {
             return callback(0);
           }
