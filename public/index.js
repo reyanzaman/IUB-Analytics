@@ -491,18 +491,26 @@ function clearList(name) {
   var urchartTitle = document.getElementById("UR-Chart-Title");
   var urchartTitle2 = document.getElementById("UR-Chart-Title2");
   var urchartTitle3 = document.getElementById("UR-Chart-Title3");
+  var crTitle1 = document.getElementById("cr-Chart-Title-1");
+  var crTitle2 = document.getElementById("cr-Chart-Title-2");
+  var crTitle3 = document.getElementById("cr-Chart-Title-3");
   if (chartTitle) {
     chartTitle.innerHTML = "";
   }
   if (dfchartTitle) {
     dfchartTitle.innerHTML = "";
-    dfchartTitle2.innerHTML = ""
-    dfchartTitle3.innerHTML = ""
+    dfchartTitle2.innerHTML = "";
+    dfchartTitle3.innerHTML = "";
   }
   if (urchartTitle) {
     urchartTitle.innerHTML = "";
-    urchartTitle2.innerHTML = ""
-    urchartTitle3.innerHTML = ""
+    urchartTitle2.innerHTML = "";
+    urchartTitle3.innerHTML = "";
+  }
+  if (crTitle1){
+    crTitle1.innerHTML = "";
+    crTitle2.innerHTML = "";
+    crTitle3.innerHTML = "";
   }
   var table = document.querySelectorAll("#tableDiv");
   if (table) {
