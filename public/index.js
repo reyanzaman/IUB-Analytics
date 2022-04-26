@@ -360,7 +360,7 @@ function assignValueCR(name, id, label) {
             r3v11 = 51;
             r3v12 = 54;
           } else if (content.textContent == '55-64') {
-            r3v14v13 = 55;
+            r3v13 = 55;
             r3v14 = 64;
           } else if (content.textContent == '65-124') {
             r3v15 = 65;
