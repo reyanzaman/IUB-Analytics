@@ -98,20 +98,22 @@ function getClass(sem, year, size1, size2, callback) {
                   resVal[2] = Math.ceil(resVal[0] / 16); //For 8 Slots
                 }
               })
-            db.query("SELECT COUNT(ROOM_CAPACITY) AS ROOMS FROM " + semester +
-              "_room WHERE ROOM_CAPACITY BETWEEN " + size1 + " AND " + size2 + ";",
-              function(err, rows) {
-                //console.log(rows);
-                if (err) {
-                  throw err;
-                } else {
-                  resultVal2 = rows[0].ROOMS;
-                  console.log("Rooms: " + resultVal2);
-                  resVal[3] = resultVal2; //Rooms
-                  console.log(resVal);
-                  return callback(resVal);
-                }
-              })
+            setTimeout(function () {
+              db.query("SELECT COUNT(ROOM_CAPACITY) AS ROOMS FROM " + semester +
+                "_room WHERE ROOM_CAPACITY BETWEEN " + size1 + " AND " + size2 + ";",
+                function(err, rows) {
+                  //console.log(rows);
+                  if (err) {
+                    throw err;
+                  } else {
+                    resultVal2 = rows[0].ROOMS;
+                    console.log("Rooms: " + resultVal2);
+                    resVal[3] = resultVal2; //Rooms
+                    console.log(resVal);
+                    return callback(resVal);
+                  }
+                })
+              }, 40);
           } else {
             return callback(0);
           }
