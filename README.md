@@ -1,6 +1,8 @@
 # IUB-Analytics-System
 Database Management Project
 
+Heroku Terminated their free plan so the web hosting is now inactive.
+
 Website link: https://iub-analytics.herokuapp.com/
 
 The IUB Analytics System (IAS) allows an instant access to all the statistics of IUB students, courses, departments, classrooms and more.
